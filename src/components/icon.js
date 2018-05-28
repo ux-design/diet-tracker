@@ -7,7 +7,7 @@ class Icon extends Component {
       iconResource = vegetables[this.props.name]
     }
     return (
-      <div className={`icon flex flex-center ${this.props.className}`}>
+      <div className={`icon flex flex-center ${this.props.className ? this.props.className : ''}`}>
         <img src={iconResource} className="icon__image" alt={this.props.name} />
       </div>
     )
