@@ -1,0 +1,15 @@
+/* content ------- start */
+
+.content {
+  width: 100%;
+  position: absolute;
+  top: $header-height;
+  bottom: 0px;
+  background-color: $color-content-bg;
+  -webkit-overflow-scrolling: touch;
+  &--scrollable {
+    overflow: auto;
+  }
+}
+
+/* content ------- end */
