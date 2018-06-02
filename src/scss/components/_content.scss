@@ -3,10 +3,13 @@
 .content {
   width: 100%;
   position: absolute;
-  top: $header-height;
+  top: $header-height-desktop;
   bottom: 0px;
   background-color: $color-content-bg;
   -webkit-overflow-scrolling: touch;
+  @media screen and (max-width: $mobile-width) {
+    top: $header-height-mobile;
+  }
   &--scrollable {
     overflow: auto;
   }

@@ -5,9 +5,12 @@
   top: 0px;
   background-color: $color-header-bg;
   width: 100%;
-  height: $header-height;
+  height: $header-height-desktop;
   color: white;
   z-index: 1;
+  @media screen and (max-width: $mobile-width) {
+    height: $header-height-mobile;
+  }
 }
 
 .header__title {

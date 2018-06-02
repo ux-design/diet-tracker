@@ -3,11 +3,15 @@ import { logger } from 'redux-logger'
 import reducers from '../reducers'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import { 
-  APP_INIT
+  APP_INIT,
+  APP_AUTOLOGIN_START,
+  APP_AUTOLOGIN_SUCCESS
 } from '../epics'
 
 const epics = combineEpics( 
-  APP_INIT
+  APP_INIT,
+  APP_AUTOLOGIN_START,
+  APP_AUTOLOGIN_SUCCESS
 )
 const epicMiddleware = createEpicMiddleware(epics)
 var store

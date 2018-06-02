@@ -32,6 +32,9 @@
   height: 100px;
   color: white;
   z-index: 1; }
+  @media screen and (max-width: 768px) {
+    .header2 {
+      height: 50px; } }
 
 .header__title {
   font-size: 1.5em; }
@@ -65,6 +68,9 @@
   bottom: 0px;
   background-color: #cccccc;
   -webkit-overflow-scrolling: touch; }
+  @media screen and (max-width: 768px) {
+    .content {
+      top: 50px; } }
   .content--scrollable {
     overflow: auto; }
 
