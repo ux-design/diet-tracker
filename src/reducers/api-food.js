@@ -30,6 +30,36 @@ const initialState = Immutable.fromJS({
     carb: 20.1,
     protein: 1.9,
     fat: 0.1
+  },
+  "blank1": {
+    category: "vegetables",
+    carb: 1,
+    protein: 1,
+    fat: 1
+  },
+  "blank2": {
+    category: "vegetables",
+    carb: 1,
+    protein: 1,
+    fat: 1
+  },
+  "blank3": {
+    category: "vegetables",
+    carb: 1,
+    protein: 1,
+    fat: 1
+  },
+  "blank4": {
+    category: "vegetables",
+    carb: 1,
+    protein: 1,
+    fat: 1
+  },
+  "blank5": {
+    category: "vegetables",
+    carb: 1,
+    protein: 1,
+    fat: 1
   }
 })
 

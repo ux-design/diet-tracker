@@ -10,6 +10,9 @@
   @media screen and (max-width: $mobile-width) {
     top: $header-height-mobile;
   }
+  @media screen and (max-width: $mobile-width) and (orientation: landscape) {
+    top: $header-height-mobile-landscape;
+  }
   &--scrollable {
     overflow: auto;
   }

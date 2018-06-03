@@ -11,6 +11,9 @@
   @media screen and (max-width: $mobile-width) {
     height: $header-height-mobile;
   }
+  @media screen and (max-width: $mobile-width) and (orientation:landscape) {
+    height: $header-height-mobile-landscape;
+  }
 }
 
 .header__title {

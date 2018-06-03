@@ -1,12 +1,17 @@
 import Immutable from 'immutable'
 
 const initialState = Immutable.fromJS({
-  ready: false,
-  route: 'browser-food'
+  items: {}
 })
+
+const foodSave = (state, food) => {
+  return state.set('items', food)
+}
 
 export default ( state = initialState, action ) => {
   switch(action.type){
+    case"FOOD_UPDATE":
+      return foodSave(state, action.payload)
     default:
       return state
   }

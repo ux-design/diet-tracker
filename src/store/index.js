@@ -5,13 +5,17 @@ import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import { 
   APP_INIT,
   APP_AUTOLOGIN_START,
-  APP_AUTOLOGIN_SUCCESS
+  APP_AUTOLOGIN_SUCCESS,
+  FOOD_FETCH,
+  FOOD_FETCH_START
 } from '../epics'
 
 const epics = combineEpics( 
   APP_INIT,
   APP_AUTOLOGIN_START,
-  APP_AUTOLOGIN_SUCCESS
+  APP_AUTOLOGIN_SUCCESS,
+  FOOD_FETCH,
+  FOOD_FETCH_START
 )
 const epicMiddleware = createEpicMiddleware(epics)
 var store
@@ -22,5 +26,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 store.dispatch({type: 'APP_INIT'})
+store.dispatch({type: 'FOOD_FETCH'})
 
 export default store

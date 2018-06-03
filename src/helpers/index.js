@@ -15,6 +15,14 @@ export const apiCallFake = (payload) => {
         }
       }
       break
+    case"food":
+      if (payload.method === 'GET') {
+        return Rx.Observable.of({ 
+          response: "success",
+          payload: payload.store.getState().apiFood
+        })
+      }
+      break
     default:
       return Rx.Observable.of({ 
         response: "error"

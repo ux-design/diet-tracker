@@ -1,4 +1,14 @@
-$mobile-width: 768px;
+$xs: 320px;
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+
+$mobile-width: $sm;
 
 $header-height-desktop: 100px;
 $header-height-mobile: 50px;
+$header-height-mobile-landscape: 40px;
+
+$padding: 5px;
+$padding-double: 10px;
