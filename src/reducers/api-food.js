@@ -31,35 +31,59 @@ const initialState = Immutable.fromJS({
     protein: 1.9,
     fat: 0.1
   },
-  "blank1": {
+  "broccoli": {
     category: "vegetables",
-    carb: 1,
-    protein: 1,
-    fat: 1
+    carb: 0,
+    protein: 0,
+    fat: 0
   },
-  "blank2": {
+  "cucumber": {
     category: "vegetables",
-    carb: 1,
-    protein: 1,
-    fat: 1
+    carb: 0,
+    protein: 0,
+    fat: 0
   },
-  "blank3": {
+  "mais": {
     category: "vegetables",
-    carb: 1,
-    protein: 1,
-    fat: 1
+    carb: 0,
+    protein: 0,
+    fat: 0
   },
-  "blank4": {
+  "mushroom": {
     category: "vegetables",
-    carb: 1,
-    protein: 1,
-    fat: 1
+    carb: 0,
+    protein: 0,
+    fat: 0
   },
-  "blank5": {
+  "pepper_green": {
     category: "vegetables",
-    carb: 1,
-    protein: 1,
-    fat: 1
+    carb: 0,
+    protein: 0,
+    fat: 0
+  },
+  "pepper_red": {
+    category: "vegetables",
+    carb: 0,
+    protein: 0,
+    fat: 0
+  },
+  "pepper_yellow": {
+    category: "vegetables",
+    carb: 0,
+    protein: 0,
+    fat: 0
+  },
+  "zucchini": {
+    category: "vegetables",
+    carb: 0,
+    protein: 0,
+    fat: 0
+  },
+  "eggplant": {
+    category: "vegetables",
+    carb: 0,
+    protein: 0,
+    fat: 0
   }
 })
 
