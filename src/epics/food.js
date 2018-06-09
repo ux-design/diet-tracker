@@ -2,16 +2,8 @@ import { apiCallFake } from '../helpers'
 
 // FOOD 
 
-export const FOOD_FETCH = action$ =>
+export const FOOD_FETCH = (action$, store) =>
   action$.ofType( 'FOOD_FETCH' )
-  .map( data => {
-    return {
-      type: "FOOD_FETCH_START"
-    }
-  })
-
-export const FOOD_FETCH_START = (action$, store) =>
-  action$.ofType( 'FOOD_FETCH_START' )
   .mergeMap( action => {
     return apiCallFake({
       method: "GET",

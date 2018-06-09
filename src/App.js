@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import actions from './actions'
-import './App.css'
 import Logo from './components/logo'
+import Updater from './pages/updater'
+import Login from './pages/login'
 import Dashboard from './pages/dashboard'
 import Browser from './pages/browser'
+import None from './pages/none'
 
 class App extends Component {
   _renderPage() {
     switch(this.props.route) {
+      case"updater":
+        return <Updater {...this.props} />
+      case"login":
+        return <Login {...this.props} />
       case"dashboard":
-        return <Dashboard />
+        return <Dashboard {...this.props} />
       case"browser-food":
-        return <Browser type="food" data={this.props.food} />
+        return <Browser type="food" data={this.props.food} {...this.props} />
       default:
-        return null
+        return <None />
     }
   }
   render() {
@@ -22,7 +28,7 @@ class App extends Component {
       <div className="app">
         <div className="header2 flex flex-row flex-center">
           <Logo />
-          <h1 className="header__title">Diet Tracker</h1>
+          <h1 className="header__title">{this.props.route}</h1>
         </div>
         { this._renderPage() }
       </div>

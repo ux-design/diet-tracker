@@ -2,7 +2,8 @@ import Immutable from 'immutable'
 
 const initialState = Immutable.fromJS({
   email: 'mazzilli.andrea@gmail.com',
-  password: '1234'
+  password: '1234',
+  logged: false
 })
 
 export default ( state = initialState, action ) => {

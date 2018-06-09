@@ -4,18 +4,18 @@ import reducers from '../reducers'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import { 
   APP_INIT,
-  APP_AUTOLOGIN_START,
+  APP_INIT_SUCCESS,
+  APP_AUTOLOGIN,
   APP_AUTOLOGIN_SUCCESS,
-  FOOD_FETCH,
-  FOOD_FETCH_START
+  FOOD_FETCH
 } from '../epics'
 
 const epics = combineEpics( 
   APP_INIT,
-  APP_AUTOLOGIN_START,
+  APP_INIT_SUCCESS,
+  APP_AUTOLOGIN,
   APP_AUTOLOGIN_SUCCESS,
-  FOOD_FETCH,
-  FOOD_FETCH_START
+  FOOD_FETCH
 )
 const epicMiddleware = createEpicMiddleware(epics)
 var store

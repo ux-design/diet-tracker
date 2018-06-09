@@ -1,9 +1,11 @@
 /* animations ------- start */
 
 .animation__spin--loop {
-  animation: spin infinite 20s linear;
+  animation: spin infinite 1s linear;
 }
-
+.animation__spin--loop-slow {
+  animation: spin infinite 5s linear;
+}
 .animation__bounce {
   animation: bounce 0.5s ease-in-out;
 }

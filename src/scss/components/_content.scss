@@ -3,14 +3,14 @@
 .content {
   width: 100%;
   position: absolute;
-  top: $header-height-desktop;
+  top: $header-height;
   bottom: 0px;
   background-color: $color-content-bg;
   -webkit-overflow-scrolling: touch;
-  @media screen and (max-width: $mobile-width) {
-    top: $header-height-mobile;
+  @media screen and (max-width: $xs) {
+    top: $header-height;
   }
-  @media screen and (max-width: $mobile-width) and (orientation: landscape) {
+  @media screen and (max-width: $xs) and (orientation: landscape) {
     top: $header-height-mobile-landscape;
   }
   &--scrollable {
