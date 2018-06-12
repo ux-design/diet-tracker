@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 class Login extends Component {
   _passwordForget = () => {
-    return this.props.fire('APP_ROUTE','password-forget')
+    return this.props.fire('ROUTE_CHANGE','password-forget')
   }
   _register = () => {
-    return this.props.fire('APP_ROUTE','register')
+    return this.props.fire('ROUTE_CHANGE','register')
   }
   render() {
     return (

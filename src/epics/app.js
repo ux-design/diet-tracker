@@ -8,7 +8,7 @@ export const APP_INIT = action$ =>
   .mergeMap( () => {
     return Rx.Observable.concat(
       Rx.Observable.of({
-        type: "APP_ROUTE",
+        type: "ROUTE_CHANGE",
         payload: "updater"
       }),
       Rx.Observable.of({
@@ -21,14 +21,15 @@ export const APP_INIT_SUCCESS = (action$, store) =>
   action$.ofType( 'APP_INIT_SUCCESS' )
   .map( () => {
     const logged = store.getState().user.get('logged')
+    const path = window.location.pathname
     if (logged) {
       return {
-        type: "APP_ROUTE",
-        payload: "dashboard"
+        type: "ROUTE_CHANGE",
+        payload: path === '/' ? 'dashboard' : path
       }
     } else {
       return {
-        type: "APP_ROUTE",
+        type: "ROUTE_CHANGE",
         payload: "login"
       }
     }

@@ -1,17 +1,17 @@
 import Immutable from 'immutable'
 
 const initialState = Immutable.fromJS({
-  ready: false,
-  route: null
+  ready: false
 })
 
-const appRoute = (state, payload) => {
-  return state.set("route", payload)
+const appInitSuccess = (state) => {
+  return state.set('ready', true)
 }
+
 export default ( state = initialState, action ) => {
   switch(action.type){
-    case"APP_ROUTE":
-      return appRoute(state, action.payload)
+    case"APP_INIT_SUCCESS":
+      return appInitSuccess(state)
     default:
       return state
   }

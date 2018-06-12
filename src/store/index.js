@@ -24,7 +24,6 @@ if (process.env.NODE_ENV === 'production') {
 } else { 
   store = createStore( reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware( logger, epicMiddleware ) )
 }
-
 store.dispatch({type: 'APP_INIT'})
 store.dispatch({type: 'FOOD_FETCH'})
 
