@@ -1,4 +1,5 @@
 import Rx from 'rxjs'
+import {apiServer} from '../config'
 
 export const apiCallFake = (payload) => {
   switch (payload.url) {
@@ -28,4 +29,24 @@ export const apiCallFake = (payload) => {
         response: "error"
       })
   }
+}
+
+export const apiCall = (payload) => {
+  return Rx.Observable
+    .ajax({
+      url: `${apiServer}/api/${payload.url}`,
+      method: 'GET'
+    })
+    .catch( err => { 
+      return { 
+        response: "error",
+        payload: err
+      }
+    })
+    .map( data => {
+      return { 
+        response: "success",
+        payload: data.response
+      }
+    })
 }

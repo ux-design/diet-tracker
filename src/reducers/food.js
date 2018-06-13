@@ -5,7 +5,7 @@ const initialState = Immutable.fromJS({
 })
 
 const foodSave = (state, food) => {
-  return state.set('items', food)
+  return state.set('items', Immutable.fromJS(food))
 }
 
 export default ( state = initialState, action ) => {

@@ -1,18 +1,17 @@
-import { apiCallFake } from '../helpers'
+import {apiCall} from '../helpers'
 
 // FOOD 
 
-export const FOOD_FETCH = (action$, store) =>
+export const FOOD_FETCH = (action$) =>
   action$.ofType( 'FOOD_FETCH' )
   .mergeMap( action => {
-    return apiCallFake({
+    return apiCall({
       method: "GET",
-      url: "food",
-      store: store
+      url: "food"
     })
   })
-  .delay(1000)
   .map( data => {
+    console.log(data)
     if (data.response === 'success') {
       return {
         type: "FOOD_UPDATE",
