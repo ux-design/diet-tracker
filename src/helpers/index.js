@@ -44,9 +44,16 @@ export const apiCall = (payload) => {
       }
     })
     .map( data => {
-      return { 
-        response: "success",
-        payload: data.response
+      if (data.response.error) {
+        return {
+          response: "error",
+          payload: data.response.error
+        }
+      } else {
+        return { 
+          response: "success",
+          payload: data.response
+        }
       }
     })
 }

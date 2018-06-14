@@ -6,7 +6,6 @@ import {
   APP_INIT,
   APP_INIT_SUCCESS,
   APP_AUTOLOGIN,
-  APP_AUTOLOGIN_SUCCESS,
   FOOD_FETCH
 } from '../epics'
 
@@ -14,7 +13,6 @@ const epics = combineEpics(
   APP_INIT,
   APP_INIT_SUCCESS,
   APP_AUTOLOGIN,
-  APP_AUTOLOGIN_SUCCESS,
   FOOD_FETCH
 )
 const epicMiddleware = createEpicMiddleware(epics)

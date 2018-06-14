@@ -49,6 +49,7 @@ export const APP_AUTOLOGIN = (action$) =>
   })
   .map( data => {
     if (data.response === 'success') {
+      console.log(data)
       return {
         type: "APP_AUTOLOGIN_SUCCESS"
       }
@@ -61,8 +62,17 @@ export const APP_AUTOLOGIN = (action$) =>
 
 export const APP_AUTOLOGIN_SUCCESS = action$ =>
   action$.ofType( 'APP_AUTOLOGIN_SUCCESS' )
-  .map( data => {
+  .map( () => {
     return {
       type: "APP_INIT_SUCCESS"
+    }
+  })
+
+export const APP_AUTOLOGIN_ERROR = action$ =>
+  action$.ofType( 'APP_AUTOLOGIN_ERROR' )
+  .map( () => {
+    return {
+      type: "ROUTE_CHANGE",
+      payload: "login"
     }
   })
