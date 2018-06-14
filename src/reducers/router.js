@@ -5,6 +5,7 @@ const initialState = Immutable.fromJS({
 })
 
 const routeChange = (state, address) => {
+  
   return state.set('address', address)
 }
 

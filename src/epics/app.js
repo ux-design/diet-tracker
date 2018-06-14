@@ -1,4 +1,4 @@
-import {apiCallFake} from '../helpers'
+import {apiCall} from '../helpers'
 import Rx from 'rxjs'
 
 // APP 
@@ -35,20 +35,18 @@ export const APP_INIT_SUCCESS = (action$, store) =>
     }
   })
 
-export const APP_AUTOLOGIN = (action$, store) =>
+export const APP_AUTOLOGIN = (action$) =>
   action$.ofType( 'APP_AUTOLOGIN' )
   .mergeMap( () => {
-    return apiCallFake({
+    return apiCall({
       method: "GET",
       url: "login",
       payload: {
         email: "mazzilli.andrea@gmail.com",
-        password: "1234"
-      },
-      store: store
+        password: "12345"
+      }
     })
   })
-  .delay(1000)
   .map( data => {
     if (data.response === 'success') {
       return {
