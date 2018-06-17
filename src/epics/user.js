@@ -1,25 +1,25 @@
 import {apiCall} from '../helpers'
 
-// FOOD 
+// USER 
 
-export const FOOD_FETCH = (action$) =>
-  action$.ofType( 'FOOD_FETCH' )
+export const USER_LOGIN = (action$) =>
+  action$.ofType( 'USER_LOGIN' )
   .mergeMap( () => {
     return apiCall({
-      method: "GET",
-      url: "food"
+      method: "POST",
+      url: "user-login"
     })
   })
   .map( data => {
+    console.log(data)
     if (data.response === 'success') {
-      console.log(data)
       return {
-        type: "FOOD_UPDATE",
+        type: "USER_UPDATE",
         payload: data.payload
       }
     } else {
       return {
-        type: "FOOD_FETCH_ERROR"
+        type: "USER_FETCH_ERROR"
       }
     }
   })

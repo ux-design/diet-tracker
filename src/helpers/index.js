@@ -32,10 +32,12 @@ export const apiCallFake = (payload) => {
 }
 
 export const apiCall = (payload) => {
+  const method = payload.method === 'POST' ? payload.method : 'GET'
   return Rx.Observable
     .ajax({
       url: `${apiServer}/api/${payload.url}`,
-      method: 'GET'
+      method: method,
+      body: payload.data
     })
     .catch( err => { 
       return { 
@@ -52,7 +54,7 @@ export const apiCall = (payload) => {
       } else {
         return { 
           response: "success",
-          payload: data.response
+          payload: data.response.success
         }
       }
     })

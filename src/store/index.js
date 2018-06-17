@@ -4,15 +4,19 @@ import reducers from '../reducers'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import { 
   APP_INIT,
-  APP_INIT_SUCCESS,
   APP_AUTOLOGIN,
+  APP_AUTOLOGIN_ERROR,
+  APP_AUTOLOGIN_SUCCESS,
+  USER_LOGIN,
   FOOD_FETCH
 } from '../epics'
 
 const epics = combineEpics( 
   APP_INIT,
-  APP_INIT_SUCCESS,
   APP_AUTOLOGIN,
+  APP_AUTOLOGIN_ERROR,
+  APP_AUTOLOGIN_SUCCESS,
+  USER_LOGIN,
   FOOD_FETCH
 )
 const epicMiddleware = createEpicMiddleware(epics)

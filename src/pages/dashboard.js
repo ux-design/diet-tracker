@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import ScrollView from '../components/scroll-view'
+import React from 'react'
 
-class Dashboard extends Component {
-  render() {
-    return (
-      <ScrollView />
-    )
-  }
+const Dashboard = ({fire}) => {
+  return (
+    <div className="content content--scrollable">
+      <button onClick={() => {fire('ROUTE_CHANGE','browser-food')}}>browse food</button>
+    </div>
+  )
 }
 
 export default Dashboard

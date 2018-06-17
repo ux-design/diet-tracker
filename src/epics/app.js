@@ -11,13 +11,18 @@ export const APP_INIT = action$ =>
         type: "ROUTE_CHANGE",
         payload: "updater"
       }),
+      Rx.Observable.empty()
+        .delay(1000),
+      Rx.Observable.of({
+        type: "APP_INIT_SUCCESS"
+      }),
       Rx.Observable.of({
         type: "APP_AUTOLOGIN"
       })
     )
   })
 
-export const APP_INIT_SUCCESS = (action$, store) =>
+/* export const APP_INIT_SUCCESS = (action$, store) =>
   action$.ofType( 'APP_INIT_SUCCESS' )
   .map( () => {
     const logged = store.getState().user.get('logged')
@@ -33,25 +38,25 @@ export const APP_INIT_SUCCESS = (action$, store) =>
         payload: "login"
       }
     }
-  })
+  }) */
 
 export const APP_AUTOLOGIN = (action$) =>
   action$.ofType( 'APP_AUTOLOGIN' )
   .mergeMap( () => {
     return apiCall({
-      method: "GET",
+      method: "POST",
       url: "login",
-      payload: {
+      data: {
         email: "mazzilli.andrea@gmail.com",
-        password: "12345"
+        password: "1234"
       }
     })
   })
   .map( data => {
     if (data.response === 'success') {
-      console.log(data)
       return {
-        type: "APP_AUTOLOGIN_SUCCESS"
+        type: "APP_AUTOLOGIN_SUCCESS",
+        payload: data.payload
       }
     } else {
       return {
@@ -62,10 +67,20 @@ export const APP_AUTOLOGIN = (action$) =>
 
 export const APP_AUTOLOGIN_SUCCESS = action$ =>
   action$.ofType( 'APP_AUTOLOGIN_SUCCESS' )
-  .map( () => {
-    return {
-      type: "APP_INIT_SUCCESS"
-    }
+  .mergeMap( (data) => {
+    return Rx.Observable.concat(
+      Rx.Observable.of({
+        type: "USER_UPDATE",
+        payload: data.payload
+      }),
+      Rx.Observable.of({
+        type: "FOOD_FETCH"
+      }),
+      Rx.Observable.of({
+        type: "ROUTE_CHANGE",
+        payload: "dashboard"
+      })
+    )
   })
 
 export const APP_AUTOLOGIN_ERROR = action$ =>

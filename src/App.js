@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="header2 flex flex-row flex-center">
-          <Logo />
+          <Logo fire={this.props.fire}/>
           <h1 className="header__title">{this.props.route}</h1>
         </div>
         { this._renderPage() }
