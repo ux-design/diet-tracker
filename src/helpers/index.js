@@ -40,21 +40,21 @@ export const apiCall = (payload) => {
       body: payload.data
     })
     .catch( err => { 
-      return { 
+      return Rx.Observable.of({ 
         response: "error",
-        payload: err
-      }
+        payload: err.message
+      })
     })
     .map( data => {
-      if (data.response.error) {
+      if (data.response.success) {
         return {
-          response: "error",
-          payload: data.response.error
+          response: "success",
+          payload: data.response.success
         }
       } else {
         return { 
-          response: "success",
-          payload: data.response.success
+          response: "error",
+          payload: data.response.error
         }
       }
     })
