@@ -7,11 +7,13 @@ class ScrollView extends Component {
       case"food":
         var result = []
         const data = this.props.data
+        let n = 0
         for( let x in data ) {
+          ++n
           result.push(
             <div key={x} className="list__item list__item--thumb flex flex-center">
-              <Icon name={x}/>
-              <p>{x}</p>
+              <Icon name={x} pop delay={n*50}/>
+              <p className="list__item label">{x}</p>
             </div>
           )
         }
