@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import actions from './actions'
-import Logo from './components/logo'
+import Navigation from './components/navigation'
 import Updater from './pages/updater'
 import Login from './pages/login'
 import Dashboard from './pages/dashboard'
@@ -26,10 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div className="header2 flex flex-row flex-center">
-          <Logo fire={this.props.fire}/>
-          <h1 className="header__title">{this.props.route}</h1>
-        </div>
+        <Navigation {...this.props} />
         { this._renderPage() }
       </div>
     )
