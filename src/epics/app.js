@@ -1,10 +1,12 @@
 import {apiCall} from '../helpers'
 import Rx from 'rxjs'
+import { delay } from '../config'
 
 // APP 
 
 export const APP_INIT = action$ =>
   action$.ofType( 'APP_INIT' )
+  .delay(delay)
   .mergeMap( () => {
     return Rx.Observable.concat(
       Rx.Observable.of({
@@ -12,7 +14,7 @@ export const APP_INIT = action$ =>
         payload: "updater"
       }),
       Rx.Observable.empty()
-        .delay(1000),
+        .delay(delay),
       Rx.Observable.of({
         type: "APP_INIT_SUCCESS"
       }),
@@ -42,6 +44,7 @@ export const APP_INIT = action$ =>
 
 export const APP_AUTOLOGIN = (action$) =>
   action$.ofType( 'APP_AUTOLOGIN' )
+  .delay(delay)
   .mergeMap( () => {
     return apiCall({
       method: "POST",
@@ -67,6 +70,7 @@ export const APP_AUTOLOGIN = (action$) =>
 
 export const APP_AUTOLOGIN_SUCCESS = action$ =>
   action$.ofType( 'APP_AUTOLOGIN_SUCCESS' )
+  .delay(delay)
   .mergeMap( (data) => {
     return Rx.Observable.concat(
       Rx.Observable.of({
@@ -78,13 +82,14 @@ export const APP_AUTOLOGIN_SUCCESS = action$ =>
       }),
       Rx.Observable.of({
         type: "ROUTE_CHANGE",
-        payload: "dashboard"
+        payload: "browser-food"
       })
     )
   })
 
 export const APP_AUTOLOGIN_ERROR = action$ =>
   action$.ofType( 'APP_AUTOLOGIN_ERROR' )
+  .delay(delay)
   .map( () => {
     return {
       type: "ROUTE_CHANGE",
