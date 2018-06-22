@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import vegetables from './vegetables'
 import Lottie from './lottie'
 import * as pop from '../lottie/pop.json'
+import {apiServer} from '../config'
 
 class Icon extends Component {
   constructor(props) {
@@ -12,7 +12,8 @@ class Icon extends Component {
     }
     this.lottieRef = React.createRef()
   }
-  componentDidMount() {
+
+  _render() {
     let delay = this.props.delay
     if (!delay) {delay = 0}
     if (pop) {
@@ -27,19 +28,17 @@ class Icon extends Component {
         this.setState({ isIconVisible: true })
       }, delay + 300 )
     }
-    
+  }
+  componentDidMount() {
+    this._render()
   }
   render() {
-    var iconResource = vegetables.carrot
-    if (vegetables[this.props.name]) {
-      iconResource = vegetables[this.props.name]
-    }
     return (
       <Fragment>
         <div className={`icon flex flex-center ${this.props.className ? this.props.className : ''}`}>
           {
             this.state.isIconVisible
-              ? <img src={iconResource} className="icon__image" alt={this.props.name} />
+              ? <img src={`${apiServer}/assets/food/${this.props.name}`} className="icon__image" alt={this.props.name} />
               : <div className="icon__image" />
           }
         </div>
