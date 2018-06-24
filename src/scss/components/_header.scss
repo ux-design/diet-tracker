@@ -3,7 +3,10 @@
 .header2 {
   position: fixed;
   top: 0px;
-  background-color: $color-header-bg;
+  background-color: transparent;
+  background-image: url($server + '/assets/app/nav-bg');
+  background-size: cover;
+  background-position: bottom center;
   width: 100%;
   height: $header-height;
   color: white;
@@ -11,10 +14,22 @@
   @media screen and (max-width: $xs) and (orientation:landscape) {
     height: $header-height-mobile-landscape;
   }
+  /* div {
+    border: 1px dashed red;
+  } */
 }
 
-.header__title {
+.header2__logo {
+  width: 50px;
+}
+
+.header2__title {
   font-size: 1.5em;
+  flex-grow: 1;
+}
+
+.header2__menu {
+  width: 50px;
 }
 
 /* header ------- end */
