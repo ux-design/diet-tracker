@@ -82,7 +82,7 @@ export const APP_AUTOLOGIN_SUCCESS = action$ =>
       }),
       Rx.Observable.of({
         type: "ROUTE_CHANGE",
-        payload: "browser-food"
+        payload: "dashboard"
       })
     )
   })
