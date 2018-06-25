@@ -12,7 +12,7 @@ class ScrollView extends Component {
           ++n
           result.push(
             <div key={x} className="list__item list__item--thumb flex flex-center">
-              <Icon name={x} pop delay={n*500}/>
+              <Icon name={x} bounce delay={n*100}/>
               <p className="list__item label">{x}</p>
             </div>
           )

@@ -10,7 +10,7 @@
   animation: spin infinite 5s linear; }
 
 .animation__bounce {
-  animation: bounce 0.5s ease-in-out; }
+  animation: bounce 0.3s ease-out; }
 
 /* animations ------- end */
 /* tags ------- start */
@@ -235,10 +235,10 @@ button {
 /* bounce ------- start */
 @keyframes bounce {
   0% {
-    transform: scale(0.9); }
-  60% {
+    transform: scale(0.5); }
+  30% {
     transform: scale(1.2); }
-  80% {
+  70% {
     transform: scale(0.95); }
   90% {
     transform: scale(1.1); }

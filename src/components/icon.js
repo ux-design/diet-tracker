@@ -8,7 +8,7 @@ class Icon extends Component {
     super(props)
     this.state = {
       isPopVisible: false,
-      isIconVisible: false
+      isIconVisible: false,
     }
     this.lottieRef = React.createRef()
   }
@@ -16,7 +16,7 @@ class Icon extends Component {
   _render() {
     let delay = this.props.delay
     if (!delay) {delay = 0}
-    if (pop) {
+    if (this.props.pop) {
       setTimeout( () => {
         this.setState({ isPopVisible: true })
       }, delay )
@@ -26,7 +26,7 @@ class Icon extends Component {
     } else {
       setTimeout( () => {
         this.setState({ isIconVisible: true })
-      }, delay + 300 )
+      }, delay )
     }
   }
   componentDidMount() {
@@ -38,7 +38,7 @@ class Icon extends Component {
         <div className={`icon flex flex-center ${this.props.className ? this.props.className : ''}`}>
           {
             this.state.isIconVisible
-              ? <img src={`${apiServer}/assets/food/${this.props.name}`} className="icon__image" alt={this.props.name} />
+              ? <img src={`${apiServer}/assets/food/${this.props.name}`} className="icon__image animation__bounce" alt={this.props.name} />
               : <div className="icon__image" />
           }
         </div>

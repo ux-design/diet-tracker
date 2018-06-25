@@ -82,7 +82,7 @@ export const APP_AUTOLOGIN_SUCCESS = action$ =>
       }),
       Rx.Observable.of({
         type: "ROUTE_CHANGE",
-        payload: "dashboard"
+        payload: window.location.pathname !== '/' ? window.location.pathname : "/dashboard"
       })
     )
   })
@@ -93,6 +93,6 @@ export const APP_AUTOLOGIN_ERROR = action$ =>
   .map( () => {
     return {
       type: "ROUTE_CHANGE",
-      payload: "login"
+      payload: "/login"
     }
   })

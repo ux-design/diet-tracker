@@ -8,16 +8,27 @@ import Dashboard from './pages/dashboard'
 import Browser from './pages/browser'
 import None from './pages/none'
 
+
+// disable history back button
+window.history.pushState(null, null, window.location.href)
+window.onpopstate = function () {
+    window.history.go(1)
+}
+
 class App extends Component {
   _renderPage() {
+    if ( '/' + this.props.route !== window.location.pathname ) {
+      /* console.log('updating address bar')
+      window.history.pushState({Title:'title',Url:'/' + this.props.route}, 'title', '/' + this.props.route); */
+    }
     switch(this.props.route) {
-      case"updater":
+      case"/updater":
         return <Updater {...this.props} />
-      case"login":
+      case"/login":
         return <Login {...this.props} />
-      case"dashboard":
+      case"/dashboard":
         return <Dashboard {...this.props} />
-      case"browser-food":
+      case"/browser-food":
         return <Browser type="food" data={this.props.food} {...this.props} />
       default:
         return <None />

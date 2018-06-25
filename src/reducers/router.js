@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 
 const initialState = Immutable.fromJS({
-  address: ''
+  address: '/'
 })
 
 const routeChange = (state, address) => {
