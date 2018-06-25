@@ -8,7 +8,6 @@ import Dashboard from './pages/dashboard'
 import Browser from './pages/browser'
 import None from './pages/none'
 
-
 // disable history back button
 window.history.pushState(null, null, window.location.href)
 window.onpopstate = function () {
@@ -17,10 +16,6 @@ window.onpopstate = function () {
 
 class App extends Component {
   _renderPage() {
-    if ( '/' + this.props.route !== window.location.pathname ) {
-      /* console.log('updating address bar')
-      window.history.pushState({Title:'title',Url:'/' + this.props.route}, 'title', '/' + this.props.route); */
-    }
     switch(this.props.route) {
       case"/updater":
         return <Updater {...this.props} />
