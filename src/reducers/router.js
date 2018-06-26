@@ -5,6 +5,9 @@ const initialState = Immutable.fromJS({
 })
 
 const routeChange = (state, address) => {
+  if (address !== '/updater') {
+    window.history.pushState("object or string", "Title", address)
+  }
   return state.set('address', address)
 }
 

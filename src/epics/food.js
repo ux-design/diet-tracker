@@ -12,7 +12,6 @@ export const FOOD_FETCH = (action$) =>
   })
   .map( data => {
     if (data.response === 'success') {
-      console.log(data)
       return {
         type: "FOOD_UPDATE",
         payload: data.payload

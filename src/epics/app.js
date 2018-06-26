@@ -11,7 +11,7 @@ export const APP_INIT = action$ =>
     return Rx.Observable.concat(
       Rx.Observable.of({
         type: "ROUTE_CHANGE",
-        payload: "updater"
+        payload: "/updater"
       }),
       Rx.Observable.empty()
         .delay(delay),
@@ -23,24 +23,6 @@ export const APP_INIT = action$ =>
       })
     )
   })
-
-/* export const APP_INIT_SUCCESS = (action$, store) =>
-  action$.ofType( 'APP_INIT_SUCCESS' )
-  .map( () => {
-    const logged = store.getState().user.get('logged')
-    const path = window.location.pathname
-    if (logged) {
-      return {
-        type: "ROUTE_CHANGE",
-        payload: path === '/' ? 'dashboard' : path
-      }
-    } else {
-      return {
-        type: "ROUTE_CHANGE",
-        payload: "login"
-      }
-    }
-  }) */
 
 export const APP_AUTOLOGIN = (action$) =>
   action$.ofType( 'APP_AUTOLOGIN' )
@@ -96,3 +78,4 @@ export const APP_AUTOLOGIN_ERROR = action$ =>
       payload: "/login"
     }
   })
+  

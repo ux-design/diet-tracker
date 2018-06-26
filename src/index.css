@@ -18,7 +18,9 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-size: 10px;
+  font-size: 10px; }
+
+* {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
 
 @media screen and (min-width: 0px) {
@@ -96,7 +98,6 @@ button {
   position: fixed;
   top: 0px;
   background-color: transparent;
-  background-image: url("http://localhost:4000/assets/app/nav-bg");
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
@@ -132,7 +133,6 @@ button {
   height: 100%; }
 
 .logo__image {
-  background-image: url("http://localhost:4000/assets/app/logo");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
