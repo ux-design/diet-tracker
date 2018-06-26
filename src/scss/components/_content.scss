@@ -4,8 +4,10 @@
   width: 100%;
   position: absolute;
   top: 0px;
-  padding-top: $header-height;
+  left: 0px;
+  right: 0px;
   bottom: 0px;
+  padding-top: $header-height;
   background-color: $color-content-bg;
   -webkit-overflow-scrolling: touch;
   @media screen and (max-width: $xs) {
@@ -15,7 +17,8 @@
     padding-top: $header-height-mobile-landscape;
   }
   &--scrollable {
-    overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 
