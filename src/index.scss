@@ -5,28 +5,4 @@
   text-align: center;
 }
 
-.header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.header__logo {
-  animation: spin infinite 20s linear;
-  height: 80px;
-}
-
-.header__title {
-  font-size: 1.5em;
-}
-
-.description {
-  font-size: large;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 /* index ------- end */

@@ -61,6 +61,18 @@ button {
       font-size: 30px; } }
 
 /* tags ------- end */
+/* scrollbars ------- start */
+*::-webkit-scrollbar {
+  width: 0.5em; }
+
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 0.5em; }
+
+* {
+  -webkit-overflow-scrolling: touch; }
+
+/* scrollbars ------- end */
 .flex {
   display: flex;
   align-content: flex-start;
@@ -147,8 +159,7 @@ button {
   right: 0px;
   bottom: 0px;
   padding-top: 50px;
-  background-color: #cccccc;
-  -webkit-overflow-scrolling: touch; }
+  background-color: lightgrey; }
   @media screen and (max-width: 320px) {
     .content {
       padding-top: 50px; } }
@@ -263,27 +274,5 @@ button {
 /* index ------- start */
 .app {
   text-align: center; }
-
-.header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white; }
-
-.header__logo {
-  animation: spin infinite 20s linear;
-  height: 80px; }
-
-.header__title {
-  font-size: 1.5em; }
-
-.description {
-  font-size: large; }
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
 
 /* index ------- end */
