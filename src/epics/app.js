@@ -13,6 +13,9 @@ export const APP_INIT = action$ =>
         type: "ROUTE_CHANGE",
         payload: "/updater"
       }),
+      Rx.Observable.of({
+        type: "STORAGE_GET",
+      }),
       Rx.Observable.empty()
         .delay(delay),
       Rx.Observable.of({
@@ -24,18 +27,25 @@ export const APP_INIT = action$ =>
     )
   })
 
-export const APP_AUTOLOGIN = (action$) =>
+export const APP_AUTOLOGIN = (action$, store) =>
   action$.ofType( 'APP_AUTOLOGIN' )
   .delay(delay)
   .mergeMap( () => {
-    return apiCall({
-      method: "POST",
-      url: "login",
-      data: {
-        email: "mazzilli.andrea@gmail.com",
-        password: "1234"
-      }
-    })
+    const user = store.getState().storage.get('data').user
+    if (user) {
+      return apiCall({
+        method: "POST",
+        url: "login",
+        data: {
+          email: user.email,
+          password: user.password
+        }
+      })
+    } else {
+      return Rx.Observable.of({
+        response: 'error'
+      })
+    }
   })
   .map( data => {
     if (data.response === 'success') {

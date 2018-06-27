@@ -59,3 +59,18 @@ export const apiCall = (payload) => {
       }
     })
 }
+
+export const storageGet = () => {
+  return Rx.Observable.of({
+    response: "success",
+    payload: {...window.localStorage}
+  })
+}
+
+export const storageSet = (key, value) => {
+  window.localStorage.setItem(key, value)
+  return Rx.Observable.of({
+    response: "success",
+    payload: {key, value}
+  })
+}
