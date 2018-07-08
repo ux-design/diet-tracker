@@ -35,11 +35,6 @@ export const apiCallFake = (payload) => {
 
 export const apiCall = (payload) => {
   const method = payload.method === 'POST' ? payload.method : 'GET'
-  console.log(ajax({
-    url: `${apiServer}/api/${payload.url}`,
-    method: method,
-    body: payload.data
-  }))
   return ajax({
       url: `${apiServer}/api/${payload.url}`,
       method: method,
@@ -81,9 +76,17 @@ export const storageGet = () => {
 
 export const storageSet = payload => {
   const {key, value} = payload
-  window.localStorage.setItem(key, JSON.stringify(value))
-  return Observable.of({
-    response: "success",
-    payload: {key, value}
-  })
+  if (value) {
+    window.localStorage.setItem(key, JSON.stringify(value))
+    return Observable.of({
+      response: "success",
+      payload: {key, value}
+    })
+  } else {
+    return Observable.of({
+      response: "error",
+      payload: "value is undefined"
+    })
+  }
+  
 }

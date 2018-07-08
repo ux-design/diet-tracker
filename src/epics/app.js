@@ -2,6 +2,7 @@ import {apiCall} from '../helpers'
 import {Observable} from 'rxjs'
 import 'rxjs/add/observable/of'
 import 'rxjs/add/observable/concat'
+import 'rxjs/add/observable/fromPromise'
 import {map, filter, mergeMap} from 'rxjs/operators'
 //import {delay} from '../config'
 // APP 
@@ -17,6 +18,14 @@ export const APP_INIT = action$ => action$.pipe(
       Observable.of({
         type: "STORAGE_GET",
       }),
+      Observable.fromPromise(new Promise((resolve, reject) => {
+        setTimeout(()=>{
+          resolve({
+            type: "ROUTE_CHANGE",
+            payload: "/updater"
+          })
+        },1000)
+      })),
       Observable.of({
         type: "APP_INIT_SUCCESS"
       }),
@@ -30,7 +39,6 @@ export const APP_INIT = action$ => action$.pipe(
 export const APP_AUTOLOGIN = (action$, store) => action$.pipe(
   filter(action => action.type === 'APP_AUTOLOGIN'),
   mergeMap( () => {
-    console.log(store.value.storage)
     const user = store.value.storage.get('user')    
     if (user) {
       return apiCall({
@@ -48,10 +56,10 @@ export const APP_AUTOLOGIN = (action$, store) => action$.pipe(
     }
   }),
   map( data => {
-    if (data.response === 'success') {
+    if (data.response.success) {
       return {
         type: "APP_AUTOLOGIN_SUCCESS",
-        payload: data.payload
+        payload: data.response.success
       }
     } else {
       return {

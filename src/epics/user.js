@@ -40,6 +40,9 @@ export const USER_UPDATE = (action$) => action$.pipe(
         payload: {key: 'user', value: action.payload}
       }),
       Observable.of({
+        type: "FOOD_FETCH"
+      }),
+      Observable.of({
         type: 'ROUTE_CHANGE',
         payload: '/dashboard'
       })

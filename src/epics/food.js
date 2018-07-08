@@ -12,10 +12,10 @@ export const FOOD_FETCH = (action$) => action$.pipe(
     })
   }),
   map(data => {
-    if (data.response === 'success') {
+    if (data.response.success) {
       return {
         type: "FOOD_UPDATE",
-        payload: data.payload
+        payload: data.response.success
       }
     } else {
       return {
