@@ -1,4 +1,4 @@
-import {apiCall} from '../helpers'
+import {apiCall, getAddressBarUrl} from '../helpers'
 import {Observable} from 'rxjs'
 import {map, filter, mergeMap} from 'rxjs/operators'
 
@@ -44,7 +44,7 @@ export const USER_UPDATE = (action$) => action$.pipe(
       }),
       Observable.of({
         type: 'ROUTE_CHANGE',
-        payload: '/dashboard'
+        payload: getAddressBarUrl()
       })
     )
   })

@@ -3,6 +3,17 @@ import {ajax} from 'rxjs/ajax'
 import 'rxjs/add/observable/of'
 import {apiServer} from '../config'
 
+export const getAddressBarUrl = () => {
+  switch(window.location.pathname) {
+    case"/dashboard":
+    return "/dashboard"
+    case"/browser-food":
+    return "/browser-food"
+    default:
+    return "/dashboard"
+  }
+}
+
 export const apiCallFake = (payload) => {
   switch (payload.url) {
     case"login":
@@ -62,16 +73,18 @@ export const apiCall = (payload) => {
 }
 
 export const storageGet = () => {
-  if (window.localStorage.length === 0) {
-    return Observable.of({
-      response: "error"
-    })
-  } else {
-    return Observable.of({
-      response: "success",
-      payload: window.localStorage ? {...window.localStorage} : {}
-    })
-  }
+  return Observable.fromPromise(new Promise((resolve, reject) => {
+    if (window.localStorage.length === 0) {
+      resolve({
+        type: "STORAGE_ERROR"
+      })
+    } else {
+      resolve({
+        type: "REDUX_STORAGE_UPDATE",
+        payload: window.localStorage ? {...window.localStorage} : {}
+      })
+    }
+  }))
 }
 
 export const storageSet = payload => {

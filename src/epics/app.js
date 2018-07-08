@@ -4,7 +4,8 @@ import 'rxjs/add/observable/of'
 import 'rxjs/add/observable/concat'
 import 'rxjs/add/observable/fromPromise'
 import {map, filter, mergeMap} from 'rxjs/operators'
-//import {delay} from '../config'
+import {storageGet, storageSet, getAddressBarUrl} from '../helpers'
+
 // APP 
 
 export const APP_INIT = action$ => action$.pipe(
@@ -15,17 +16,7 @@ export const APP_INIT = action$ => action$.pipe(
         type: "ROUTE_CHANGE",
         payload: "/updater"
       }),
-      Observable.of({
-        type: "STORAGE_GET",
-      }),
-      Observable.fromPromise(new Promise((resolve, reject) => {
-        setTimeout(()=>{
-          resolve({
-            type: "ROUTE_CHANGE",
-            payload: "/updater"
-          })
-        },1000)
-      })),
+      storageGet(),
       Observable.of({
         type: "APP_INIT_SUCCESS"
       }),
@@ -82,7 +73,7 @@ export const APP_AUTOLOGIN_SUCCESS = action$ => action$.pipe(
       }),
       Observable.of({
         type: "ROUTE_CHANGE",
-        payload: window.location.pathname !== '/' ? window.location.pathname : "/dashboard"
+        payload: getAddressBarUrl()
       })
     )
   })
