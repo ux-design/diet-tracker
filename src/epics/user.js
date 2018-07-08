@@ -1,21 +1,27 @@
 import {apiCall} from '../helpers'
+import {Observable} from 'rxjs'
+import {map, filter, mergeMap} from 'rxjs/operators'
 
 // USER 
 
-export const USER_LOGIN = (action$) =>
-  action$.ofType( 'USER_LOGIN' )
-  .mergeMap( () => {
+export const USER_LOGIN = (action$) => action$.pipe(
+  filter(action => action.type === 'USER_LOGIN'),
+  mergeMap( action => {
+    const {payload} = action
     return apiCall({
       method: "POST",
-      url: "user-login"
+      url: "login",
+      data: {
+        email: payload.email,
+        password: payload.password
+      }
     })
-  })
-  .map( data => {
-    console.log(data)
-    if (data.response === 'success') {
+  }),
+  map( data => {
+    if (data.response.success) {
       return {
         type: "USER_UPDATE",
-        payload: data.payload
+        payload: data.response.success
       }
     } else {
       return {
@@ -23,3 +29,20 @@ export const USER_LOGIN = (action$) =>
       }
     }
   })
+)
+
+export const USER_UPDATE = (action$) => action$.pipe(
+  filter(action => action.type === 'USER_UPDATE'),
+  mergeMap( action => {
+    return Observable.concat(
+      Observable.of({
+        type: 'STORAGE_SET',
+        payload: {key: 'user', value: action.payload}
+      }),
+      Observable.of({
+        type: 'ROUTE_CHANGE',
+        payload: '/dashboard'
+      })
+    )
+  })
+)

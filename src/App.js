@@ -48,8 +48,8 @@ const mapState = state => {
 
 const mapDispatch = (dispatch) => {
   return {
-      fire: (action, payload) => {
-          dispatch(actions(action, payload))
+      fire: (type, payload) => {
+          dispatch(actions(type, payload))
       }
   }
 }
