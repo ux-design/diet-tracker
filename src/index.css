@@ -205,7 +205,8 @@ button {
       margin: 5px;
       background-color: #ffffff; }
   .list__item .label {
-    font-size: 1rem;
+    font-size: 0.7rem;
+    text-transform: capitalize;
     margin: 5px; }
 
 /* list ------- end */

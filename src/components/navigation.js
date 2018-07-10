@@ -20,14 +20,14 @@ class Navigation extends Component {
     },1000)
   }
   componentWillReceiveProps() {
-    this._animateTitle()
+    this._animateTitle() 
   }
   render() {
     const {fire, route} = this.props
     return (
       <div 
         className="header2 flex flex-row flex-center"
-        style={{ backgroundImage: `url(${apiServer}/assets/app/nav-bg)` }}>
+        style={{ backgroundImage: `url(${apiServer}/assets/app/nav-bar)` }}>
         <div className="header2__logo flex flex-center">
           <Logo fire={fire}/> 
         </div>
