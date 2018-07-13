@@ -10,9 +10,11 @@ class Navigation extends Component {
     }
   }
   _animateTitle() {
-    this.setState({
-      titleClasses: 'animation__bounce'
-    })
+    setTimeout(() => {
+      this.setState({
+        titleClasses: 'animation__bounce'
+      })
+    },200)
     setTimeout(() => {
       this.setState({
         titleClasses: ''
@@ -33,7 +35,7 @@ class Navigation extends Component {
         </div>
         <h1 className={`header2__title ${this.state.titleClasses}`}>{navigationTitle[route]}</h1>
         <div className="header2__menu flex flex-center">
-          <p>M</p>
+          <div className="menu menu__image" style={{ backgroundImage: `url(${apiServer}/assets/app/nav-btn)` }}/>
         </div>
       </div>
     )

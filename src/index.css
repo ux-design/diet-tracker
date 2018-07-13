@@ -18,11 +18,12 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-size: 10px; }
+  font-size: 18px; }
 
 * {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  outline: none; }
+  outline: none;
+  font-weight: normal; }
 
 @media screen and (min-width: 0px) {
   p {
@@ -116,8 +117,9 @@ button {
   cursor: pointer; }
 
 .header2__title {
-  font-size: 1.5em;
-  flex-grow: 1; }
+  font-size: 1em;
+  flex-grow: 1;
+  text-transform: uppercase; }
 
 .header2__menu {
   width: 50px;
@@ -134,10 +136,23 @@ button {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  width: 30px;
+  height: 30px; }
+
+/* logo ------- end */
+/* menu ------- start */
+.menu {
   width: 100%;
   height: 100%; }
 
-/* logo ------- end */
+.menu__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px; }
+
+/* menu ------- end */
 /* icon ------- start */
 .icon {
   width: 100%;
@@ -157,7 +172,7 @@ button {
   right: 0px;
   bottom: 0px;
   padding-top: 50px;
-  background-color: lightgrey; }
+  background-color: #faedca; }
   @media screen and (max-width: 320px) {
     .content {
       padding-top: 50px; } }
@@ -242,7 +257,7 @@ button {
   .btn--success {
     background-color: #0071BC; }
   .btn--danger {
-    background-color: #D4145A; }
+    background-color: #e8683c; }
 
 /* button ------- end */
 .login {
