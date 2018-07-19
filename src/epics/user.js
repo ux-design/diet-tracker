@@ -44,7 +44,7 @@ export const USER_UPDATE = (action$) => action$.pipe(
       }),
       Observable.of({
         type: 'ROUTE_CHANGE',
-        payload: getAddressBarUrl()
+        payload: getAddressBarUrl(true)
       })
     )
   })

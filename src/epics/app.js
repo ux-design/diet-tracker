@@ -60,7 +60,7 @@ export const APP_AUTOLOGIN = (action$, store) => action$.pipe(
   })
 )
 
-export const APP_AUTOLOGIN_SUCCESS = action$ => action$.pipe(
+export const APP_AUTOLOGIN_SUCCESS = (action$, store) => action$.pipe(
   filter(action => action.type === 'APP_AUTOLOGIN_SUCCESS'),
   mergeMap( (data) => {
     return Observable.concat(
@@ -73,7 +73,7 @@ export const APP_AUTOLOGIN_SUCCESS = action$ => action$.pipe(
       }),
       Observable.of({
         type: "ROUTE_CHANGE",
-        payload: getAddressBarUrl()
+        payload: getAddressBarUrl(true)
       })
     )
   })
@@ -82,10 +82,19 @@ export const APP_AUTOLOGIN_SUCCESS = action$ => action$.pipe(
 export const APP_AUTOLOGIN_ERROR = action$ => action$.pipe(
   filter(action => action.type === 'APP_AUTOLOGIN_ERROR'),
   map( () => {
-    return {
-      type: "ROUTE_CHANGE",
-      payload: "/login"
+    if ( getAddressBarUrl() !== '/account-create' &&
+      getAddressBarUrl() !== '/password-forget' ) {
+      return {
+        type: "ROUTE_CHANGE",
+        payload: "/login"
+      }
+    } else {
+      return {
+        type: "ROUTE_CHANGE",
+        payload: getAddressBarUrl()
+      }
     }
+    
   })
 )
   

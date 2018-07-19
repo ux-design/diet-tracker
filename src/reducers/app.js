@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 
 const initialState = Immutable.fromJS({
-  ready: false
+  ready: false,
 })
 
 const appInitSuccess = (state) => {

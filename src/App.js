@@ -4,6 +4,8 @@ import actions from './actions'
 import Navigation from './components/navigation'
 import Updater from './pages/updater'
 import Login from './pages/login'
+import PasswordForget from './pages/password-forget'
+import AccountCreate from './pages/account-create'
 import Dashboard from './pages/dashboard'
 import Browser from './pages/browser'
 import None from './pages/none'
@@ -21,6 +23,10 @@ class App extends Component {
         return <Updater {...this.props} />
       case"/login":
         return <Login {...this.props} />
+      case"/password-forget":
+        return <PasswordForget {...this.props} />
+      case"/account-create":
+        return <AccountCreate {...this.props} />
       case"/dashboard":
         return <Dashboard {...this.props} />
       case"/browser-food":

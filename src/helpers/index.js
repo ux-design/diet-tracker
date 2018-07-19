@@ -3,14 +3,25 @@ import {ajax} from 'rxjs/ajax'
 import 'rxjs/add/observable/of'
 import {apiServer} from '../config'
 
-export const getAddressBarUrl = () => {
+export const getAddressBarUrl = (logged) => {
   switch(window.location.pathname) {
     case"/dashboard":
-    return "/dashboard"
+      return "/dashboard"
     case"/browser-food":
-    return "/browser-food"
+      return "/browser-food"
+    case"/login":
+    console.log(logged)
+      if(logged){
+        return "/dashboard"
+      }else{
+        return "/login"
+      }
+    case"/password-forget":
+      return "/password-forget"
+    case"/account-create":
+      return "/account-create"
     default:
-    return "/dashboard"
+      return "/dashboard"
   }
 }
 

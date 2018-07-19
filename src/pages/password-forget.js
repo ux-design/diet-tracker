@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Login extends Component {
+class PasswordForget extends Component {
   constructor() {
     super()
     this.state = {
@@ -12,7 +12,7 @@ class Login extends Component {
     this.props.fire('ROUTE_CHANGE','/password-forget')
   }
   _register = () => {
-    this.props.fire('ROUTE_CHANGE','/account-create')
+    this.props.fire('ROUTE_CHANGE','/register')
   }
   _login = () => {
     const payload = {email: this.state.email, password: this.state.password}
@@ -30,7 +30,7 @@ class Login extends Component {
         <div className="login flex flex-column flex-center">
           <div className="login__form">
             <input type="textfield" defaultValue={this.state.email} onChange={this._onChangeEmail} placeholder="email" />
-            <input type="password" defaultValue={this.state.password} onChange={this._onChangePassword} placeholder="password" />
+            <input type="textfield" defaultValue={this.state.password} onChange={this._onChangePassword} placeholder="password" />
             <button className="btn btn--primary" onClick={this._login}>login</button>
             <a className="login__remember" onClick={this._passwordForget}>i don't remember my password</a>
             <p>if you are not registered yet:</p>
@@ -42,4 +42,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default PasswordForget

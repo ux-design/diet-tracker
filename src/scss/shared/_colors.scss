@@ -1,13 +1,19 @@
-$color-white: #ffffff;
-$color-grey-light: lightgrey;
-$color-grey-dark: darkgrey;
-$color-black: #000000;
+/* brand identity */
 
 $color-primary: rgb(137,216,190);
 $color-success: rgb(193,219,179);
 $color-neutral: rgb(250,237,202);
 $color-warning: rgb(242,192,120);
 $color-danger: rgb(232,104,60);
+
+$color-black-dark: rgba(0,0,0,0.5);
+$color-black-medium: rgba(0,0,0,0.4);
+$color-black-light: rgba(0,0,0,0.2);
+$color-black-extralight: rgba(0,0,0,0.1);
+
+$color-white: white;
+
+/* elements */
 
 $color-success-light: #29ABE2;
 $color-success-dark: #0071BC;
@@ -18,3 +24,6 @@ $color-success-dark: #0071BC;
 $color-body-bg: $color-neutral;
 $color-header-bg: $color-primary;
 $color-content-bg: $color-neutral;
+$color-input-background: $color-black-extralight;
+$color-input-placeholder: $color-black-light;
+$color-input-text: $color-black-medium;
