@@ -1,0 +1,23 @@
+.registration {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: $color-content-bg;
+  overflow: hidden;
+}
+.registration__form {
+  width: calc(100% - 100px);
+  display: block;
+}
+.registration__accept {
+  display: flex;
+}
+.registration__accept-checkbox {
+  width: 10%;
+}
+.registration__accept-text {
+  width: 90%;
+}
+p {
+  text-transform: uppercase;
+}

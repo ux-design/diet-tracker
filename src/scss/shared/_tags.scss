@@ -8,10 +8,11 @@ body {
 }
 
 * {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'helvetica', arial;
   outline: none;
   font-weight: normal;
   //border: 1px dashed red!important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 p {
@@ -41,6 +42,11 @@ input {
   @media screen and (min-width: $lg) {
     font-size: 1em;
   }
+  &[type=checkbox] {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
 }
 
 button {
@@ -63,14 +69,13 @@ a {
   text-decoration: underline;
   text-transform: uppercase;
   color: $color-primary;
-  font-size: 0.8em;
   font-weight: bold;
   cursor: pointer;
 }
 
 p {
   font-size: 0.8em;
-  line-height: 1.2em;
+  line-height: 1.5em;
   margin: 0.8em;
   color: $color-black-dark;
 }

@@ -11,6 +11,7 @@ import {
   STORAGE_SET,
   USER_LOGIN,
   USER_UPDATE,
+  USER_REGISTER,
   FOOD_FETCH
 } from '../epics'
 
@@ -23,6 +24,7 @@ const epics = combineEpics(
   STORAGE_SET,
   USER_LOGIN,
   USER_UPDATE,
+  USER_REGISTER,
   FOOD_FETCH
 )
 const epicMiddleware = createEpicMiddleware()

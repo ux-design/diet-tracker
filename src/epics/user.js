@@ -44,8 +44,32 @@ export const USER_UPDATE = (action$) => action$.pipe(
       }),
       Observable.of({
         type: 'ROUTE_CHANGE',
-        payload: getAddressBarUrl(true)
+        payload: getAddressBarUrl(false)
       })
     )
+  })
+)
+
+export const USER_REGISTER = (action$) => action$.pipe(
+  filter(action => action.type === 'USER_REGISTER'),
+  mergeMap( action => {
+    const {payload} = action
+    return apiCall({
+      method: "POST",
+      url: "register",
+      data: payload
+    })
+  }),
+  map( data => {
+    if (data.response.success) {
+      return {
+        type: "ROUTE_CHANGE",
+        payload: '/login'
+      }
+    } else {
+      return {
+        type: "USER_FETCH_ERROR"
+      }
+    }
   })
 )

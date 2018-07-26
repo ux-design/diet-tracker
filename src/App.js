@@ -48,7 +48,8 @@ class App extends Component {
 const mapState = state => {
   return { 
     route: state.router.get('address'),
-    food: state.food.get('items').toJS()
+    food: state.food.get('items').toJS(),
+    menu: state.app.get('menu')
   }
 }
 

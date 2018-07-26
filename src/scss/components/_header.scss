@@ -9,11 +9,21 @@
   background-repeat: no-repeat;
   width: 100%;
   height: $header-height;
-  color: white;
   z-index: 1;
+  transition-property: height;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(.64,.1,.38,.96);
+  &--maximized {
+    height: calc(100% + 5px);
+  }
   @media screen and (max-width: $xs) and (orientation:landscape) {
     height: $header-height-mobile-landscape;
   }
+}
+.header2__top {
+  width: 100%;
+  height: $header-height;
+  color: white;
 }
 
 .header2__logo {
