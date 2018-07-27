@@ -21,7 +21,9 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
   font-size: 14px; }
 
 * {
@@ -56,8 +58,8 @@ input {
     input {
       font-size: 1em; } }
   input[type=checkbox] {
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     cursor: pointer; }
 
 button {
@@ -217,11 +219,8 @@ p {
 /* content ------- start */
 .content {
   width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  position: relative;
+  min-height: 100%;
   padding-top: 50px;
   background-color: #faedca; }
   @media screen and (max-width: 320px) {

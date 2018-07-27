@@ -10,7 +10,6 @@ export const getAddressBarUrl = (logged) => {
     case"/browser-food":
       return "/browser-food"
     case"/login":
-    console.log(logged)
       if(logged){
         return "/dashboard"
       }else{

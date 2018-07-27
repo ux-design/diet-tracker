@@ -2,11 +2,8 @@
 
 .content {
   width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  position: relative;
+  min-height: 100%;
   padding-top: $header-height;
   background-color: $color-content-bg;
   @media screen and (max-width: $xs) {

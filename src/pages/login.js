@@ -26,7 +26,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="fullscreen fullscreen--shownav flex flex-column flex-center">
+      <div className="content content--scrollable flex flex-column flex-center">
         <div className="login flex flex-column flex-center">
           <div className="login__form">
             {/* email input */}
@@ -38,13 +38,13 @@ class Login extends Component {
               login
             </button>
             {/* password retrieve link */}
-            <p>
+            <p className="text-center">
               <a className="login__remember" onClick={this._passwordForget}>
                 i don't remember my password
               </a>
             </p>
             {/* registration label */}
-            <p>if you are not registered yet:</p>
+            <p className="text-center">if you are not registered yet:</p>
             {/* registration button */}
             <button className="btn btn--primary" onClick={this._register}>
               create account

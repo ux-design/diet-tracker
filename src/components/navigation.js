@@ -37,7 +37,7 @@ class Navigation extends Component {
           <div className="header2__logo flex flex-center">
             <Logo fire={fire}/> 
           </div>
-          <h1 className={`header2__title ${this.state.titleClasses}`}>{navigationTitle[route]}</h1>
+          <h1 className={`header2__title ${this.state.titleClasses} text-center`}>{navigationTitle[route]}</h1>
           <div className="header2__menu flex flex-center">
             <div className="menu menu__image" style={{ backgroundImage: `url(${apiServer}/assets/app/nav-btn)` }} onClick={()=>{fire('APP_MENU_CLICK')}} />
           </div>

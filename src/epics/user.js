@@ -31,7 +31,7 @@ export const USER_LOGIN = (action$) => action$.pipe(
   })
 )
 
-export const USER_UPDATE = (action$) => action$.pipe(
+export const USER_UPDATE = (action$, store) => action$.pipe(
   filter(action => action.type === 'USER_UPDATE'),
   mergeMap( action => {
     return Observable.concat(
@@ -44,7 +44,7 @@ export const USER_UPDATE = (action$) => action$.pipe(
       }),
       Observable.of({
         type: 'ROUTE_CHANGE',
-        payload: getAddressBarUrl(false)
+        payload: getAddressBarUrl(store.value.user.get('logged')    )
       })
     )
   })

@@ -36,12 +36,10 @@ class App extends Component {
     }
   }
   render() {
-    return (
-      <div className="app">
-        <Navigation {...this.props} />
-        { this._renderPage() }
-      </div>
-    )
+    return ([
+        <Navigation {...this.props} />,
+        this._renderPage()
+    ])
   }
 }
 

@@ -67,14 +67,14 @@ class AccountCreate extends Component {
       checked = 'checked'
     }
     return (
-      <div className="fullscreen fullscreen--shownav flex flex-column flex-center">
+      <div className="content content--scrollable flex flex-column flex-center">
         <div className="registration flex flex-column flex-center">
           <div className="registration__form">
             <input type="textfield" defaultValue={this.state.email} onChange={this._onChangeEmail} placeholder="type your email" />
             <input type="password" defaultValue={this.state.password} onChange={this._onChangePassword} placeholder="type your password" />
             <input type="password" defaultValue={this.state.passwordRepeat} onChange={this._onChangePasswordRepeat} placeholder="type your password again" />
             <div className="registration__accept">
-              <div className="registration__accept-checkbox flex flex-column flex-center">
+              <div className="registration__accept-checkbox flex flex-center">
                 <input type="checkbox" onChange={this._onChangeAccept} checked={checked} />
               </div>
               <div className="registration__accept-text flex flex-column flex-start">

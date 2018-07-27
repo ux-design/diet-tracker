@@ -26,7 +26,7 @@ class PasswordForget extends Component {
   }
   render() {
     return (
-      <div className="fullscreen fullscreen--shownav flex flex-column flex-center">
+      <div className="content content--scrollable flex flex-column flex-center">
         <div className="login flex flex-column flex-center">
           <div className="login__form">
             <input type="textfield" defaultValue={this.state.email} onChange={this._onChangeEmail} placeholder="email" />

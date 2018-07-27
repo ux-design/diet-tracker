@@ -3,7 +3,9 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
   font-size: 14px;
 }
 
@@ -43,8 +45,8 @@ input {
     font-size: 1em;
   }
   &[type=checkbox] {
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     cursor: pointer;
   }
 }
