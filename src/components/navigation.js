@@ -28,15 +28,25 @@ class Navigation extends Component {
   _renderContent = (logged) => {
     if (logged) {
       return (
-        <div className="list list--thumbs flex flex-wrap">
-          <div key="nav-item1" className="list__item list__item--thumb flex flex-center">
-            <Icon name="tomato" type="nav"/>
-            <p className="list__item label text-center">dashboard</p>
+        <div className="header2__content">
+          <div className="list list--thumbs flex flex-wrap">
+            <div key="nav-item1" className="list__item list__item--thumb flex flex-center">
+              <Icon name="tomato" type="nav"/>
+              <p className="list__item label text-center">dashboard</p>
+            </div>
           </div>
         </div>
       )
     } else {
-      return null
+      return (
+        <div className="header2__content header2__content--notlogged flex flex-center flex-column">
+          <div className="flex flex-center flex-column w-50">
+            <button className="btn btn--white" onClick={this._login}>
+              login
+            </button>
+          </div>
+        </div>
+      )
     }
   }
   render() {
@@ -50,7 +60,7 @@ class Navigation extends Component {
         {/* top navigation */}
         <div className="header2__top flex flex-row flex-center">
           <div className="header2__logo flex flex-center">
-            <Logo fire={fire}/> 
+            <Logo /> 
           </div>
           <h1 className={`header2__title ${this.state.titleClasses} text-center`}>{navigationTitle[route]}</h1>
           <div className="header2__menu flex flex-center">
@@ -58,9 +68,7 @@ class Navigation extends Component {
           </div>
         </div>
         {/* content when menu is open */}
-        <div className="header2__content">
-          { this._renderContent(logged) }
-        </div>
+        { this._renderContent(logged) }
       </div>
     )
   }
