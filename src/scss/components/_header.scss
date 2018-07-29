@@ -10,6 +10,7 @@
   width: 100%;
   height: $header-height;
   z-index: 1;
+  overflow: hidden;
   transition-property: height;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(.64,.1,.38,.96);
@@ -42,6 +43,14 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
+}
+
+.header2__content {
+  position: absolute;
+  border: dashed 1px white;
+  top: 50px;
+  bottom: 60px;
+  width: 100%;
 }
 
 /* header ------- end */
