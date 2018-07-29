@@ -182,7 +182,6 @@ p {
 
 .header2__content {
   position: absolute;
-  border: dashed 1px white;
   top: 50px;
   bottom: 60px;
   width: 100%; }

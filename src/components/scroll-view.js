@@ -13,7 +13,7 @@ class ScrollView extends Component {
           result.push(
             <div key={x} className="list__item list__item--thumb flex flex-center">
               <Icon name={x} bounce delay={n*100}/>
-              <p className="list__item label">{x.replace('_', ' ')}</p>
+              <p className="list__item label text-center">{x.replace('_', ' ')}</p>
             </div>
           )
         }

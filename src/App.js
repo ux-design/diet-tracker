@@ -47,7 +47,8 @@ const mapState = state => {
   return { 
     route: state.router.get('address'),
     food: state.food.get('items').toJS(),
-    menu: state.app.get('menu')
+    menu: state.app.get('menu'),
+    logged: state.user.get('logged')
   }
 }
 

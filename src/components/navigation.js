@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Logo from './logo'
+import Icon from './icon'
 import {apiServer, navigationTitle} from '../config'
 
 class Navigation extends Component {
@@ -24,8 +25,22 @@ class Navigation extends Component {
   componentWillReceiveProps() {
     //this._animateTitle() 
   }
+  _renderContent = (logged) => {
+    if (logged) {
+      return (
+        <div className="list list--thumbs flex flex-wrap">
+          <div key="nav-item1" className="list__item list__item--thumb flex flex-center">
+            <Icon name="tomato" type="nav"/>
+            <p className="list__item label text-center">dashboard</p>
+          </div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
   render() {
-    const {fire, route, menu} = this.props
+    const {fire, route, menu, logged} = this.props
     var menuStatus = ''
     if (menu) {
       menuStatus = 'header2--maximized'
@@ -44,7 +59,7 @@ class Navigation extends Component {
         </div>
         {/* content when menu is open */}
         <div className="header2__content">
-          
+          { this._renderContent(logged) }
         </div>
       </div>
     )
