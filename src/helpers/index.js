@@ -111,5 +111,19 @@ export const storageSet = payload => {
       payload: "value is undefined"
     })
   }
-  
+}
+
+export const storageErase = () => {
+  window.localStorage.clear()
+  return Observable.fromPromise(new Promise((resolve, reject) => {
+    if (window.localStorage.length === 0) {
+      resolve({
+        type: "STORAGE_ERASED"
+      })
+    } else {
+      resolve({
+        type: "STORAGE_ERROR"
+      })
+    }
+  }))
 }

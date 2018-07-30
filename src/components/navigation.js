@@ -35,7 +35,7 @@ class Navigation extends Component {
   }
   _onLogoutClick = () => {
     this.props.fire('APP_MENU_CLICK')
-    this.props.fire('APP_LOGOUT')
+    this.props.fire('USER_LOGOUT')
   }
   _renderContent = (logged) => {
     if (logged) {

@@ -1,5 +1,6 @@
-import {apiCall, getAddressBarUrl} from '../helpers'
+import {apiCall, getAddressBarUrl, storageErase} from '../helpers'
 import {Observable} from 'rxjs'
+import 'rxjs/add/observable/concat'
 import {map, filter, mergeMap} from 'rxjs/operators'
 
 // USER 
@@ -28,6 +29,19 @@ export const USER_LOGIN = (action$) => action$.pipe(
         type: "USER_FETCH_ERROR"
       }
     }
+  })
+)
+
+export const USER_LOGOUT = (action$) => action$.pipe(
+  filter(action => action.type === 'USER_LOGOUT'),
+  mergeMap( () => {
+    return Observable.concat(
+      storageErase(),
+      Observable.of({
+        type: "ROUTE_CHANGE",
+        payload: "/login"
+      })
+    )
   })
 )
 
