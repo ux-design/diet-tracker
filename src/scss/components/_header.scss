@@ -5,7 +5,7 @@
   top: 0px;
   background-color: transparent;
   background-size: cover;
-  background-position: bottom center;
+  background-position: top center;
   background-repeat: no-repeat;
   width: 100%;
   height: $header-height;
@@ -15,7 +15,7 @@
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(.64,.1,.38,.96);
   &--maximized {
-    height: calc(100% + 5px);
+    height: calc(100% + 50px);
   }
   @media screen and (max-width: $xs) and (orientation:landscape) {
     height: $header-height-mobile-landscape;
