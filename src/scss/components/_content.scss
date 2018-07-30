@@ -3,18 +3,24 @@
 .content {
   width: 100%;
   position: relative;
-  min-height: 100%;
-  padding-top: $header-height;
+  height: 100%;
+  //padding-top: $header-height;
   background-color: $color-content-bg;
   @media screen and (max-width: $xs) {
-    padding-top: $header-height;
+    //padding-top: $header-height;
   }
   @media screen and (max-width: $xs) and (orientation: landscape) {
-    padding-top: $header-height-mobile-landscape;
+    //padding-top: $header-height-mobile-landscape;
   }
   &--scrollable {
-    overflow-y: scroll;
+    overflow-y: visible;
     overflow-x: hidden;
+  }
+  &--no-bar::-webkit-scrollbar { 
+    display: none; 
+  }
+  &--top {
+    margin-top: 43px;
   }
 }
 

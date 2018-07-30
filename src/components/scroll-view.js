@@ -28,7 +28,7 @@ class ScrollView extends Component {
   }
   render() {
     return (
-      <div className="content content--scrollable">
+      <div className="content content--scrollable content--no-bar content--top">
         { this._renderItems() }
       </div>
     )

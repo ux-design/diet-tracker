@@ -25,14 +25,34 @@ class Navigation extends Component {
   componentWillReceiveProps() {
     //this._animateTitle() 
   }
+  _onLoginClick = () => {
+    this.props.fire('APP_MENU_CLICK')
+    this.props.fire('ROUTE_CHANGE', '/login')
+  }
+  _onDashboardClick = () => {
+    this.props.fire('APP_MENU_CLICK')
+    this.props.fire('ROUTE_CHANGE', '/dashboard')
+  }
+  _onLogoutClick = () => {
+    this.props.fire('APP_MENU_CLICK')
+    this.props.fire('APP_LOGOUT')
+  }
   _renderContent = (logged) => {
     if (logged) {
       return (
         <div className="header2__content">
           <div className="list list--thumbs flex flex-wrap">
             <div key="nav-item1" className="list__item list__item--thumb flex flex-center">
-              <Icon name="tomato" type="nav"/>
+              <button onClick={this._onDashboardClick} className="btn btn--empty">
+                <Icon name="tomato" type="nav"/>
+              </button>
               <p className="list__item label text-center">dashboard</p>
+            </div>
+            <div key="nav-item2" className="list__item list__item--thumb flex flex-center">
+              <button onClick={this._onLogoutClick} className="btn btn--empty">
+                <Icon name="mushroom" type="nav"/>
+              </button>
+              <p className="list__item label text-center">logout</p>
             </div>
           </div>
         </div>
@@ -41,7 +61,7 @@ class Navigation extends Component {
       return (
         <div className="header2__content header2__content--notlogged flex flex-center flex-column">
           <div className="flex flex-center flex-column w-50">
-            <button className="btn btn--white" onClick={this._login}>
+            <button className="btn btn--white" onClick={this._onLoginClick}>
               login
             </button>
           </div>
