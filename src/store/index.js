@@ -3,6 +3,10 @@ import { logger } from 'redux-logger'
 import reducers from '../reducers'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import { 
+  APP_CHECK_ENV,
+  APP_REDIRECT,
+  APP_CHECK_SERVER_STATUS,
+  APP_CHECK_SERVER_STATUS_LOOP,
   APP_INIT,
   APP_AUTOLOGIN,
   APP_AUTOLOGIN_ERROR,
@@ -17,6 +21,10 @@ import {
 } from '../epics'
 
 const epics = combineEpics( 
+  APP_CHECK_ENV,
+  APP_REDIRECT,
+  APP_CHECK_SERVER_STATUS,
+  APP_CHECK_SERVER_STATUS_LOOP,
   APP_INIT,
   APP_AUTOLOGIN,
   APP_AUTOLOGIN_ERROR,
@@ -37,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
   store = createStore( reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware( logger, epicMiddleware ) )
 }
 epicMiddleware.run(epics)
-store.dispatch({type: 'APP_INIT'})
+store.dispatch({type: 'APP_CHECK_ENV'})
 //store.dispatch({type: 'FOOD_FETCH'})
 
 export default store

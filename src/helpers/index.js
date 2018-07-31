@@ -1,4 +1,5 @@
 import {Observable} from 'rxjs'
+import {catchError} from 'rxjs/operators'
 import {ajax} from 'rxjs/ajax'
 import 'rxjs/add/observable/of'
 import {apiServer} from '../config'
@@ -60,14 +61,18 @@ export const apiCall = (payload) => {
       url: `${apiServer}/api/${payload.url}`,
       method: method,
       body: payload.data
-    })
-    /* .catch( err => { 
-      return Observable.of({ 
-        response: "error",
-        payload: err.message
+    }).pipe(
+      catchError( () => {
+        return Observable.of({response: 'error'})
       })
-    }) 
-    .map( data => {
+    )
+    // .catch( err => { 
+    //   return Observable.of({ 
+    //     response: "error",
+    //     payload: err.message
+    //   })
+    // }) 
+    /*.map( data => {
       if (data.response.success) {
         return {
           response: "success",

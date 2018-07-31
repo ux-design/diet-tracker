@@ -70,10 +70,14 @@ class Navigation extends Component {
     }
   }
   render() {
-    const {fire, route, menu, logged} = this.props
+    const {fire, route, menu, logged, serverAlive} = this.props
     var menuStatus = ''
+    var title = navigationTitle[route]
     if (menu) {
       menuStatus = 'header2--maximized'
+    }
+    if (!serverAlive) {
+      title = 'NO CONNECTION!'
     }
     return (
       <div className={`header2 ${menuStatus} flex flex-column`} style={{ backgroundImage: `url(${apiServer}/assets/app/nav-bar)` }}>
@@ -82,7 +86,7 @@ class Navigation extends Component {
           <div className="header2__logo flex flex-center">
             <Logo /> 
           </div>
-          <h1 className={`header2__title ${this.state.titleClasses} text-center`}>{navigationTitle[route]}</h1>
+          <h1 className={`header2__title ${this.state.titleClasses} text-center`}>{title}</h1>
           <div className="header2__menu flex flex-center">
             <div className="menu menu__image" style={{ backgroundImage: `url(${apiServer}/assets/app/nav-btn)` }} onClick={()=>{fire('APP_MENU_CLICK')}} />
           </div>
