@@ -8,13 +8,27 @@ class Lottie extends Component {
     this.lottieRef = React.createRef()
   }
   componentDidMount () {
-    LottieWeb.loadAnimation({
-      container: this.lottieRef.current,
-      renderer: 'svg',
-      loop: this.props.loop,
-      autoplay: true,
-      animationData: this.props.animation
-    })
+    if (this.props.animation) {
+      LottieWeb.loadAnimation({
+        container: this.lottieRef.current,
+        renderer: 'svg',
+        loop: this.props.loop,
+        autoplay: this.props.autoplay,
+        animationData: require(`../lottie/guide/${this.props.animation}.json`)
+      })
+    }
+  }
+  componentWillReceiveProps (nextProps) {
+    LottieWeb.destroy()
+    if (nextProps.animation) {
+      LottieWeb.loadAnimation({
+        container: this.lottieRef.current,
+        renderer: 'svg',
+        loop: nextProps.loop,
+        autoplay: nextProps.autoplay,
+        animationData: require(`../lottie/guide/${nextProps.animation}.json`)
+      })
+    }
   }
   render () {
     return (

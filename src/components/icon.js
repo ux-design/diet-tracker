@@ -10,7 +10,6 @@ class Icon extends Component {
       isPopVisible: false,
       isIconVisible: false,
     }
-    this.lottieRef = React.createRef()
   }
 
   _render() {

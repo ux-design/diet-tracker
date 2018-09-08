@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Guide from '../components/guide'
 
 class Login extends Component {
   constructor() {
@@ -48,6 +49,8 @@ class Login extends Component {
           <button className="btn btn--primary" onClick={this._register}>
             create account
           </button>
+          {/* guide */}
+          <Guide style={{width:'100%',height:'200px'}} />
         </div>
       </div>
     )
